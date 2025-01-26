@@ -447,7 +447,7 @@ public partial class DcbmForm : Form
 
                 if (currentVersion != latestVersion)
                 {
-                    var result = MessageBox.Show($"نسخه جدید ({latestVersion}) موجود است. آیا می‌خواهید آپدیت کنید؟", "آپدیت برنامه", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    var result = MessageBox.Show(text: $"نسخه جدید ({latestVersion}) موجود است. آیا می‌خواهید آپدیت کنید؟", caption: "آپدیت برنامه", buttons: MessageBoxButtons.YesNo, icon: MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading);
                     if (result == DialogResult.Yes)
                     {
                         DownloadAndUpdate(client, latestVersion);
