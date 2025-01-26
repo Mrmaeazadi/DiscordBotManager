@@ -433,7 +433,7 @@ public partial class DcbmForm : Form
     private const string updateUrl = "https://csharp.mcexe.ir/updates/";
     private const string versionFile = "version.txt";
     private const string updateFile = "BE.zip";
-    private const string currentVersion = "1.1.1";
+    private const string currentVersion = "1.0.0";
 
     private void CheckForUpdate()
     {
