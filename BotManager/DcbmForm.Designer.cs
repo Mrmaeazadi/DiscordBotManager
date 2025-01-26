@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DcbmForm));
             uptimeLabel = new Label();
             cpuLabel = new Label();
             memoryLabel = new Label();
@@ -203,12 +204,12 @@
             // updateLabel
             // 
             updateLabel.AutoSize = true;
-            updateLabel.BackColor = Color.FromArgb(14, 14, 14);
-            updateLabel.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            updateLabel.BackColor = Color.FromArgb(20, 20, 20);
+            updateLabel.Font = new Font("Vazirmatn", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             updateLabel.ForeColor = Color.White;
-            updateLabel.Location = new Point(21, 25);
+            updateLabel.Location = new Point(739, 545);
             updateLabel.Name = "updateLabel";
-            updateLabel.Size = new Size(47, 13);
+            updateLabel.Size = new Size(71, 27);
             updateLabel.TabIndex = 29;
             updateLabel.Text = "1.1.9GU";
             // 
@@ -258,13 +259,13 @@
             // 
             nameLabel.AutoSize = true;
             nameLabel.BackColor = Color.FromArgb(14, 14, 14);
-            nameLabel.Font = new Font("Segoe Script", 8.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            nameLabel.Font = new Font("Segoe Script", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             nameLabel.ForeColor = Color.White;
             nameLabel.Location = new Point(21, 10);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new Size(82, 17);
+            nameLabel.Size = new Size(189, 27);
             nameLabel.TabIndex = 33;
-            nameLabel.Text = "Bot Manager";
+            nameLabel.Text = "Discord Bot Manager";
             // 
             // dashboardTabLabel
             // 
@@ -719,6 +720,7 @@
             mainPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             mainPanel.Controls.Add(maximizePictureBox);
             mainPanel.Controls.Add(navigationBarPictureBox);
+            mainPanel.Controls.Add(updateLabel);
             mainPanel.Location = new Point(0, -2);
             mainPanel.Name = "mainPanel";
             mainPanel.Size = new Size(813, 576);
@@ -735,7 +737,6 @@
             Controls.Add(exitPictureBox);
             Controls.Add(dashboardPanel);
             Controls.Add(terminalPanel);
-            Controls.Add(updateLabel);
             Controls.Add(introductionLabel);
             Controls.Add(madeByLabel);
             Controls.Add(myNameLabel);
@@ -752,8 +753,10 @@
             Controls.Add(mainPanel);
             ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "DcbmForm";
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "Discord Bot Manager";
             Load += DcbmForm_Load;
             KeyDown += DcbmForm_KeyDown;
             ((System.ComponentModel.ISupportInitialize)navigationBarPictureBox).EndInit();
@@ -786,6 +789,7 @@
             ((System.ComponentModel.ISupportInitialize)fileEditorPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)maximizePictureBox).EndInit();
             mainPanel.ResumeLayout(false);
+            mainPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }

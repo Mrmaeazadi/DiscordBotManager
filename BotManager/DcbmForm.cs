@@ -19,7 +19,7 @@ namespace BotManager;
 public partial class DcbmForm : Form
 {
     private string currentFile;
-    private Process? botProcess;
+    private Process botProcess;
     private string currentDirectory;
     private PerformanceCounter memoryCounter;
     private System.Windows.Forms.Timer updateTimer;
@@ -28,12 +28,6 @@ public partial class DcbmForm : Form
     {
         InitializeComponent();
         InitializeCustomComponents();
-
-        botProcess = new Process();
-        memoryCounter = new PerformanceCounter();
-        currentFile = Environment.CurrentDirectory;
-        updateTimer = new System.Windows.Forms.Timer();
-        currentDirectory = Environment.CurrentDirectory;
     }
 
     //***********************************************************************************
