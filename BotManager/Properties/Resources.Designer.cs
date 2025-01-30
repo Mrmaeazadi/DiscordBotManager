@@ -173,6 +173,16 @@ namespace BotManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap full_screen_30px {
+            get {
+                object obj = ResourceManager.GetObject("full_screen_30px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MemoryBox {
             get {
                 object obj = ResourceManager.GetObject("MemoryBox", resourceCulture);

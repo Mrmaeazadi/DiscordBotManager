@@ -275,7 +275,7 @@
             dashboardTabLabel.Cursor = Cursors.Hand;
             dashboardTabLabel.Font = new Font("Vazirmatn", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dashboardTabLabel.ForeColor = Color.White;
-            dashboardTabLabel.Location = new Point(687, 10);
+            dashboardTabLabel.Location = new Point(646, 12);
             dashboardTabLabel.Name = "dashboardTabLabel";
             dashboardTabLabel.Size = new Size(63, 27);
             dashboardTabLabel.TabIndex = 35;
@@ -287,7 +287,7 @@
             dashboardTabUnderPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             dashboardTabUnderPanel.BackColor = Color.White;
             dashboardTabUnderPanel.ForeColor = Color.Black;
-            dashboardTabUnderPanel.Location = new Point(688, 36);
+            dashboardTabUnderPanel.Location = new Point(647, 38);
             dashboardTabUnderPanel.Name = "dashboardTabUnderPanel";
             dashboardTabUnderPanel.Size = new Size(60, 2);
             dashboardTabUnderPanel.TabIndex = 36;
@@ -300,7 +300,7 @@
             terminalTabLabel.Cursor = Cursors.Hand;
             terminalTabLabel.Font = new Font("Vazirmatn", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             terminalTabLabel.ForeColor = Color.White;
-            terminalTabLabel.Location = new Point(623, 10);
+            terminalTabLabel.Location = new Point(582, 12);
             terminalTabLabel.Name = "terminalTabLabel";
             terminalTabLabel.Size = new Size(57, 27);
             terminalTabLabel.TabIndex = 35;
@@ -312,7 +312,7 @@
             terminalTabUnderPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             terminalTabUnderPanel.BackColor = Color.White;
             terminalTabUnderPanel.ForeColor = Color.Black;
-            terminalTabUnderPanel.Location = new Point(622, 36);
+            terminalTabUnderPanel.Location = new Point(581, 38);
             terminalTabUnderPanel.Name = "terminalTabUnderPanel";
             terminalTabUnderPanel.Size = new Size(58, 2);
             terminalTabUnderPanel.TabIndex = 36;
@@ -325,7 +325,7 @@
             fileManagerTabLabel.Cursor = Cursors.Hand;
             fileManagerTabLabel.Font = new Font("Vazirmatn", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             fileManagerTabLabel.ForeColor = Color.White;
-            fileManagerTabLabel.Location = new Point(525, 11);
+            fileManagerTabLabel.Location = new Point(484, 13);
             fileManagerTabLabel.Name = "fileManagerTabLabel";
             fileManagerTabLabel.Size = new Size(94, 27);
             fileManagerTabLabel.TabIndex = 35;
@@ -337,7 +337,7 @@
             fileManagerTabUnderPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             fileManagerTabUnderPanel.BackColor = Color.White;
             fileManagerTabUnderPanel.ForeColor = Color.Black;
-            fileManagerTabUnderPanel.Location = new Point(526, 36);
+            fileManagerTabUnderPanel.Location = new Point(485, 38);
             fileManagerTabUnderPanel.Name = "fileManagerTabUnderPanel";
             fileManagerTabUnderPanel.Size = new Size(90, 2);
             fileManagerTabUnderPanel.TabIndex = 36;
@@ -706,8 +706,8 @@
             maximizePictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             maximizePictureBox.BackColor = Color.FromArgb(14, 14, 14);
             maximizePictureBox.Cursor = Cursors.Hand;
-            maximizePictureBox.Image = Properties.Resources.Online1_1;
-            maximizePictureBox.Location = new Point(484, 8);
+            maximizePictureBox.Image = Properties.Resources.full_screen_30px;
+            maximizePictureBox.Location = new Point(715, 8);
             maximizePictureBox.Name = "maximizePictureBox";
             maximizePictureBox.Size = new Size(35, 35);
             maximizePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -718,6 +718,12 @@
             // mainPanel
             // 
             mainPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            mainPanel.Controls.Add(dashboardTabUnderPanel);
+            mainPanel.Controls.Add(terminalTabUnderPanel);
+            mainPanel.Controls.Add(fileManagerTabUnderPanel);
+            mainPanel.Controls.Add(fileManagerTabLabel);
+            mainPanel.Controls.Add(dashboardTabLabel);
+            mainPanel.Controls.Add(terminalTabLabel);
             mainPanel.Controls.Add(maximizePictureBox);
             mainPanel.Controls.Add(navigationBarPictureBox);
             mainPanel.Controls.Add(updateLabel);
@@ -742,12 +748,6 @@
             Controls.Add(myNameLabel);
             Controls.Add(madeByPictureBox);
             Controls.Add(introductionPictureBox);
-            Controls.Add(fileManagerTabUnderPanel);
-            Controls.Add(fileManagerTabLabel);
-            Controls.Add(terminalTabUnderPanel);
-            Controls.Add(terminalTabLabel);
-            Controls.Add(dashboardTabUnderPanel);
-            Controls.Add(dashboardTabLabel);
             Controls.Add(nameLabel);
             Controls.Add(topMostCheckBox);
             Controls.Add(mainPanel);
