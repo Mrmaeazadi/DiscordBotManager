@@ -740,9 +740,9 @@
             ClientSize = new Size(813, 574);
             ControlBox = false;
             Controls.Add(fileManagerPanel);
-            Controls.Add(exitPictureBox);
-            Controls.Add(dashboardPanel);
             Controls.Add(terminalPanel);
+            Controls.Add(dashboardPanel);
+            Controls.Add(exitPictureBox);
             Controls.Add(introductionLabel);
             Controls.Add(madeByLabel);
             Controls.Add(myNameLabel);

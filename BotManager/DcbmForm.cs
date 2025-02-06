@@ -129,13 +129,13 @@ public partial class DcbmForm : Form
                 }
             };
 
-                #pragma warning disable CS8604
+#pragma warning disable CS8604
             botProcess.OutputDataReceived += (s, args) => AppendToTerminal(message: args.Data);
-                #pragma warning restore CS8604
+#pragma warning restore CS8604
 
-                #pragma warning disable CS8604
+#pragma warning disable CS8604
             botProcess.ErrorDataReceived += (s, args) => AppendToTerminal(message: args.Data);
-                #pragma warning restore CS8604
+#pragma warning restore CS8604
 
             botProcess.Start();
             botProcess.BeginOutputReadLine();
@@ -381,7 +381,6 @@ public partial class DcbmForm : Form
         {
             MessageBox.Show($"خطا در بارگذاری فایل‌ها: {ex.Message}", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
     }
     //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -423,7 +422,7 @@ public partial class DcbmForm : Form
         {
             MessageBox.Show($"خطا در بارگذاری فایل‌ها: {ex.Message}", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        }
+    }
     //===================================================================================
 
     //***********************************************************************************
@@ -439,7 +438,7 @@ public partial class DcbmForm : Form
     {
         try
         {
-                #pragma warning disable SYSLIB0014
+#pragma warning disable SYSLIB0014
             using (WebClient client = new())
             {
                 string latestVersion = client.DownloadString(updateUrl + "version.txt").Trim();
@@ -455,7 +454,7 @@ public partial class DcbmForm : Form
                     }
                 }
             }
-                #pragma warning restore SYSLIB0014
+#pragma warning restore SYSLIB0014
         }
         catch (Exception ex)
         {
