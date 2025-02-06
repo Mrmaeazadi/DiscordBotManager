@@ -211,7 +211,7 @@
             updateLabel.Name = "updateLabel";
             updateLabel.Size = new Size(71, 27);
             updateLabel.TabIndex = 29;
-            updateLabel.Text = "1.1.9GU";
+            updateLabel.Text = "1.2.0GU";
             // 
             // navigationBarPictureBox
             // 
