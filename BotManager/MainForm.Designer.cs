@@ -1,6 +1,6 @@
 ﻿namespace BotManager
 {
-    partial class DcbmForm
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DcbmForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             uptimeLabel = new Label();
             cpuLabel = new Label();
             memoryLabel = new Label();
@@ -48,6 +48,12 @@
             fileManagerTabLabel = new Label();
             fileManagerTabUnderPanel = new Panel();
             dashboardPanel = new Panel();
+            whyDiscordBotPanel = new Panel();
+            whyDiscordBotLabel = new Label();
+            howToManagePanel = new Panel();
+            linkLabel = new Label();
+            howToManageLabel = new Label();
+            uptimeSignLabel = new Label();
             whyDiscordBotPictureBox = new PictureBox();
             howToManagePictureBox = new PictureBox();
             uptimePictureBox = new PictureBox();
@@ -68,6 +74,7 @@
             terminalClearPictureBox = new PictureBox();
             terminalPictureBox = new PictureBox();
             fileManagerPanel = new Panel();
+            uploadLabel = new Label();
             clearPictureBox = new PictureBox();
             loadFilePictureBox = new PictureBox();
             savePictureBox = new PictureBox();
@@ -81,6 +88,8 @@
             ((System.ComponentModel.ISupportInitialize)navigationBarPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)exitPictureBox).BeginInit();
             dashboardPanel.SuspendLayout();
+            whyDiscordBotPanel.SuspendLayout();
+            howToManagePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)whyDiscordBotPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)howToManagePictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)uptimePictureBox).BeginInit();
@@ -166,8 +175,9 @@
             // 
             // terminalOutputRichTextBox
             // 
-            terminalOutputRichTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            terminalOutputRichTextBox.BackColor = SystemColors.WindowText;
+            terminalOutputRichTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            terminalOutputRichTextBox.BackColor = Color.FromArgb(14, 14, 14);
+            terminalOutputRichTextBox.BorderStyle = BorderStyle.None;
             terminalOutputRichTextBox.ForeColor = SystemColors.Window;
             terminalOutputRichTextBox.Location = new Point(15, 12);
             terminalOutputRichTextBox.Name = "terminalOutputRichTextBox";
@@ -181,13 +191,16 @@
             fileListBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             fileListBox.BackColor = Color.FromArgb(14, 14, 14);
             fileListBox.BorderStyle = BorderStyle.None;
+            fileListBox.DrawMode = DrawMode.OwnerDrawFixed;
             fileListBox.ForeColor = SystemColors.Window;
             fileListBox.FormattingEnabled = true;
             fileListBox.Location = new Point(415, 58);
             fileListBox.Name = "fileListBox";
-            fileListBox.Size = new Size(357, 345);
+            fileListBox.Size = new Size(357, 336);
             fileListBox.TabIndex = 6;
+            fileListBox.DrawItem += FileListBox_DrawItem;
             fileListBox.MouseDoubleClick += FileListBox_MouseDoubleClick;
+            fileListBox.MouseDown += FileListBox_MouseDown;
             // 
             // fileEditor
             // 
@@ -209,9 +222,9 @@
             updateLabel.ForeColor = Color.White;
             updateLabel.Location = new Point(739, 545);
             updateLabel.Name = "updateLabel";
-            updateLabel.Size = new Size(71, 27);
+            updateLabel.Size = new Size(70, 27);
             updateLabel.TabIndex = 29;
-            updateLabel.Text = "1.2.0GU";
+            updateLabel.Text = "1.2.2CU";
             // 
             // navigationBarPictureBox
             // 
@@ -345,6 +358,9 @@
             // dashboardPanel
             // 
             dashboardPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dashboardPanel.Controls.Add(whyDiscordBotPanel);
+            dashboardPanel.Controls.Add(howToManagePanel);
+            dashboardPanel.Controls.Add(uptimeSignLabel);
             dashboardPanel.Controls.Add(whyDiscordBotPictureBox);
             dashboardPanel.Controls.Add(howToManagePictureBox);
             dashboardPanel.Controls.Add(cpuLabel);
@@ -360,6 +376,76 @@
             dashboardPanel.Size = new Size(785, 418);
             dashboardPanel.TabIndex = 37;
             // 
+            // whyDiscordBotPanel
+            // 
+            whyDiscordBotPanel.Controls.Add(whyDiscordBotLabel);
+            whyDiscordBotPanel.Location = new Point(3, 229);
+            whyDiscordBotPanel.Name = "whyDiscordBotPanel";
+            whyDiscordBotPanel.Size = new Size(381, 0);
+            whyDiscordBotPanel.TabIndex = 7;
+            whyDiscordBotPanel.Click += WhyDiscordBotPanel_Click;
+            // 
+            // whyDiscordBotLabel
+            // 
+            whyDiscordBotLabel.Font = new Font("Vazirmatn", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            whyDiscordBotLabel.ForeColor = Color.White;
+            whyDiscordBotLabel.Location = new Point(12, 1);
+            whyDiscordBotLabel.Name = "whyDiscordBotLabel";
+            whyDiscordBotLabel.RightToLeft = RightToLeft.Yes;
+            whyDiscordBotLabel.Size = new Size(360, 139);
+            whyDiscordBotLabel.TabIndex = 0;
+            whyDiscordBotLabel.Text = "مدیریت ربات دیسکورد یک برنامه خیلی ساده راحت برای مدیریت و ساخت سرور دیسکورد است. شما فقط باید دایرکتوری و مسیر اصلی ربات دیسکورد را توی بخش مدیریت فایل مشخص کنید بعد توی ترمینال شروع ربات رو بزنید!";
+            whyDiscordBotLabel.TextAlign = ContentAlignment.MiddleCenter;
+            whyDiscordBotLabel.Click += WhyDiscordBotLabel_Click;
+            // 
+            // howToManagePanel
+            // 
+            howToManagePanel.Controls.Add(linkLabel);
+            howToManagePanel.Controls.Add(howToManageLabel);
+            howToManagePanel.Location = new Point(404, 229);
+            howToManagePanel.Name = "howToManagePanel";
+            howToManagePanel.Size = new Size(381, 0);
+            howToManagePanel.TabIndex = 6;
+            howToManagePanel.Click += HowToManagePanel_Click;
+            // 
+            // linkLabel
+            // 
+            linkLabel.AutoSize = true;
+            linkLabel.Cursor = Cursors.Hand;
+            linkLabel.Font = new Font("Vazirmatn", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            linkLabel.ForeColor = Color.FromArgb(0, 140, 255);
+            linkLabel.Location = new Point(63, 83);
+            linkLabel.Name = "linkLabel";
+            linkLabel.Size = new Size(259, 27);
+            linkLabel.TabIndex = 1;
+            linkLabel.Text = "https://overtm.ir/setup-discordbot";
+            linkLabel.Click += LinkLabel_Click;
+            // 
+            // howToManageLabel
+            // 
+            howToManageLabel.Font = new Font("Vazirmatn", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            howToManageLabel.ForeColor = Color.White;
+            howToManageLabel.Location = new Point(11, 10);
+            howToManageLabel.Name = "howToManageLabel";
+            howToManageLabel.RightToLeft = RightToLeft.Yes;
+            howToManageLabel.Size = new Size(360, 122);
+            howToManageLabel.TabIndex = 0;
+            howToManageLabel.Text = "شما میتوانید کلی کار کنید و نمیشه اینجا توضیح داد. به لینک زیر مراجعه کنید:";
+            howToManageLabel.TextAlign = ContentAlignment.TopCenter;
+            howToManageLabel.Click += HowToManageLabel_Click;
+            // 
+            // uptimeSignLabel
+            // 
+            uptimeSignLabel.AutoSize = true;
+            uptimeSignLabel.BackColor = Color.FromArgb(17, 17, 17);
+            uptimeSignLabel.Font = new Font("Vazirmatn", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            uptimeSignLabel.ForeColor = Color.White;
+            uptimeSignLabel.Location = new Point(241, 56);
+            uptimeSignLabel.Name = "uptimeSignLabel";
+            uptimeSignLabel.Size = new Size(105, 36);
+            uptimeSignLabel.TabIndex = 5;
+            uptimeSignLabel.Text = "آپتایم ربات";
+            // 
             // whyDiscordBotPictureBox
             // 
             whyDiscordBotPictureBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
@@ -371,6 +457,7 @@
             whyDiscordBotPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             whyDiscordBotPictureBox.TabIndex = 4;
             whyDiscordBotPictureBox.TabStop = false;
+            whyDiscordBotPictureBox.Click += WhyDiscordBotPictureBox_Click;
             // 
             // howToManagePictureBox
             // 
@@ -383,6 +470,7 @@
             howToManagePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             howToManagePictureBox.TabIndex = 4;
             howToManagePictureBox.TabStop = false;
+            howToManagePictureBox.Click += HowToManagePictureBox_Click;
             // 
             // uptimePictureBox
             // 
@@ -466,6 +554,7 @@
             myNameLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             myNameLabel.AutoSize = true;
             myNameLabel.BackColor = Color.FromArgb(17, 17, 17);
+            myNameLabel.Cursor = Cursors.Hand;
             myNameLabel.Font = new Font("Vazirmatn", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             myNameLabel.ForeColor = Color.FromArgb(0, 140, 255);
             myNameLabel.Location = new Point(431, 480);
@@ -473,6 +562,7 @@
             myNameLabel.Size = new Size(118, 27);
             myNameLabel.TabIndex = 39;
             myNameLabel.Text = "محمد علی ایزدی";
+            myNameLabel.Click += MyNameLabel_Click;
             // 
             // introductionLabel
             // 
@@ -580,7 +670,7 @@
             // 
             // terminalPictureBox
             // 
-            terminalPictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            terminalPictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             terminalPictureBox.Image = Properties.Resources.Terminal;
             terminalPictureBox.Location = new Point(5, 3);
             terminalPictureBox.Name = "terminalPictureBox";
@@ -592,6 +682,7 @@
             // fileManagerPanel
             // 
             fileManagerPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            fileManagerPanel.Controls.Add(uploadLabel);
             fileManagerPanel.Controls.Add(clearPictureBox);
             fileManagerPanel.Controls.Add(loadFilePictureBox);
             fileManagerPanel.Controls.Add(savePictureBox);
@@ -605,6 +696,20 @@
             fileManagerPanel.Name = "fileManagerPanel";
             fileManagerPanel.Size = new Size(785, 418);
             fileManagerPanel.TabIndex = 41;
+            // 
+            // uploadLabel
+            // 
+            uploadLabel.AutoSize = true;
+            uploadLabel.BackColor = Color.FromArgb(14, 14, 14);
+            uploadLabel.Cursor = Cursors.Hand;
+            uploadLabel.Font = new Font("Vazirmatn SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            uploadLabel.ForeColor = Color.White;
+            uploadLabel.Location = new Point(623, 14);
+            uploadLabel.Name = "uploadLabel";
+            uploadLabel.Size = new Size(40, 26);
+            uploadLabel.TabIndex = 33;
+            uploadLabel.Text = "آپلود";
+            uploadLabel.Click += UploadLabel_Click;
             // 
             // clearPictureBox
             // 
@@ -713,7 +818,7 @@
             maximizePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             maximizePictureBox.TabIndex = 32;
             maximizePictureBox.TabStop = false;
-            maximizePictureBox.Click += maximizePictureBox_Click;
+            maximizePictureBox.Click += MaximizePictureBox_Click;
             // 
             // mainPanel
             // 
@@ -732,7 +837,7 @@
             mainPanel.Size = new Size(813, 576);
             mainPanel.TabIndex = 44;
             // 
-            // DcbmForm
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -740,8 +845,8 @@
             ClientSize = new Size(813, 574);
             ControlBox = false;
             Controls.Add(fileManagerPanel);
-            Controls.Add(terminalPanel);
             Controls.Add(dashboardPanel);
+            Controls.Add(terminalPanel);
             Controls.Add(exitPictureBox);
             Controls.Add(introductionLabel);
             Controls.Add(madeByLabel);
@@ -754,7 +859,7 @@
             ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "DcbmForm";
+            Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Discord Bot Manager";
             Load += DcbmForm_Load;
@@ -763,6 +868,9 @@
             ((System.ComponentModel.ISupportInitialize)exitPictureBox).EndInit();
             dashboardPanel.ResumeLayout(false);
             dashboardPanel.PerformLayout();
+            whyDiscordBotPanel.ResumeLayout(false);
+            howToManagePanel.ResumeLayout(false);
+            howToManagePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)whyDiscordBotPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)howToManagePictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)uptimePictureBox).EndInit();
@@ -780,6 +888,7 @@
             ((System.ComponentModel.ISupportInitialize)terminalClearPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)terminalPictureBox).EndInit();
             fileManagerPanel.ResumeLayout(false);
+            fileManagerPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)clearPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)loadFilePictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)savePictureBox).EndInit();
@@ -845,5 +954,12 @@
         private Button browserRefreshButton;
         private PictureBox maximizePictureBox;
         private Panel mainPanel;
+        private Label uptimeSignLabel;
+        private Panel howToManagePanel;
+        private Panel whyDiscordBotPanel;
+        private Label howToManageLabel;
+        private Label whyDiscordBotLabel;
+        private Label linkLabel;
+        private Label uploadLabel;
     }
 }
